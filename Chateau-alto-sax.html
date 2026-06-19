@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sale: Used Chateau Alto Saxophone</title>
+    <style>
+        :root {
+            --primary: #b38f4f;
+            --dark: #1a1a1a;
+            --light: #f9f9f9;
+            --gray: #666;
+            --border: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--dark);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Listing Grid Layout */
+        .listing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .listing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Gallery Styles */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image-wrapper {
+            width: 100%;
+            height: 500px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #000;
+        }
+
+        .main-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .thumbnails img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .thumbnails img:hover, .thumbnails img.active {
+            border-color: var(--primary);
+        }
+
+        /* Details & Content Styles */
+        .details-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .description {
+            margin-bottom: 25px;
+        }
+
+        .description p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .specs-table th, .specs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .specs-table th {
+            background-color: #f2f2f2;
+            font-weight: 600;
+            width: 35%;
+        }
+
+        .cta-box {
+            background: #fdfaf4;
+            border: 1px solid var(--primary);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+
+        .btn-contact:hover {
+            background: #96743b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Chateau Alto Saxophone</h1>
+        <div class="price-tag">$1,100</div>
+    </header>
+
+    <div class="listing-grid">
+        <!-- Left Side: Interactive Photo Gallery -->
+        <div class="gallery-container">
+            <div class="main-image-wrapper">
+                <img id="mainViewer" src="image_2.png" alt="Chateau Alto Saxophone in Case">
+            </div>
+            <div class="thumbnails">
+                <img src="image_2.png" class="active" onclick="changeImage(this)" alt="Saxophone inside full case view">
+                <img src="image.png" onclick="changeImage(this)" alt="Saxophone body close up right side">
+                <img src="image_5.png" onclick="changeImage(this)" alt="Saxophone body close up left side">
+                <img src="image_3.png" onclick="changeImage(this)" alt="Saxophone neck and mouthpiece piece">
+                <img src="image_4.png" onclick="changeImage(this)" alt="Saxophone neck close up view">
+            </div>
+        </div>
+
+        <!-- Right Side: Item Details & Purchase Call to Action -->
+        <div class="details-container">
+            <div class="description">
+                <h2>Item Description</h2>
+                <br>
+                <p>Up for sale is a beautiful, pre-owned <strong>Chateau Alto Saxophone</strong> finished in a gorgeous gold lacquer. Known for their reliable intonation and excellent build quality, Chateau instruments are fantastic options for advancing students and intermediate players alike.</p>
+                <p>This saxophone has been carefully maintained and comes complete with its dedicated neck, a mouthpiece assembly with ligature/cap, a comfortable neck strap, and its original plush-lined hard shell protective case. Everything you need to get playing immediately is right here.</p>
+            </div>
+
+            <table class="specs-table">
+                <tr>
+                    <th>Brand</th>
+                    <td>Chateau</td>
+                </tr>
+                <tr>
+                    <th>Instrument</th>
+                    <td>Alto Saxophone</td>
+                </tr>
+                <tr>
+                    <th>Condition</th>
+                    <td>Used (Good structural and playing condition)</td>
+                </tr>
+                <tr>
+                    <th>Included Assets</th>
+                    <td>Hard case, neck, mouthpiece, ligature, and neck strap</td>
+                </tr>
+            </table>
+
+            <div class="cta-box">
+                <h3>Interested in Buying?</h3>
+                <p>This instrument is available for local pickup or shipping. Feel free to contact me with any questions or to schedule a time to see it in person.</p>
+                <!-- Replace 'your-email@example.com' with your real email address -->
+                <a href="mailto:ttvelavan@yahoo.com?subject=Inquiry%20about%20Chateau%20Alto%20Saxophone" class="btn-contact">Contact Seller</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript to handle the interactive image thumbnail switching
+    function changeImage(element) {
+        // Update main image source
+        document.getElementById('mainViewer').src = element.src;
+        
+        // Remove active class from all thumbnails
+        const thumbnails = document.querySelectorAll('.thumbnails img');
+        thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        
+        // Add active class to clicked thumbnail
+        element.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
